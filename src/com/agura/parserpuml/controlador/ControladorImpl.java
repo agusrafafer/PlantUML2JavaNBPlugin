@@ -25,15 +25,6 @@ public class ControladorImpl extends Controlador {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-//        try {
-//            float numero1 = this.VISTA.getNumero1();
-//            float numero2 = this.VISTA.getNumero2();
-//
-//            MODELOAPP.realizarAccion(e.getActionCommand());
-//
-//        } catch (Exception ex) {
-//            VISTA.imprimeError(ex);
-//        }
         try {
             MODELOAPP.actualizarVista(e.getActionCommand(), ((Principal) this.VISTA).modeloListaPathSel.toArray());
         } catch (Exception ex) {
