@@ -275,5 +275,10 @@ public class Principal extends javax.swing.JFrame implements InterfazVista {
     private javax.swing.JTextField txtCarpetaSeleccionada;
     // End of variables declaration//GEN-END:variables
     public DefaultListModel<String> modeloListaPathSel = new DefaultListModel<>();
+    
+    
+    
+    
+    
 
 }
