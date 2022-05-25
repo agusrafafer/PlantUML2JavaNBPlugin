@@ -13,13 +13,18 @@ import java.lang.reflect.InvocationTargetException;
  * @author agustin
  */
 public abstract class Accion {
+
     public abstract void ejecutar(Modelo modelo, Object[]... paths);
-    
-    public static Accion getAccion(String nombreClase){
+
+    public static Accion getAccion(String nombreClase) {
         Accion accion = null;
-        try {            
-            accion = (Accion) Class.forName(Accion.class.getPackageName() + "." + nombreClase).getDeclaredConstructor().newInstance();
-        } catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | InstantiationException | NoSuchMethodException | SecurityException | InvocationTargetException e) {
+        try {
+            
+            Class c = (Class) Class.forName(Accion.class.getPackage().getName() + "." + nombreClase);
+//            Class c = (Class) Class.forName(nombreClase);
+            Object obj = c.newInstance();
+            accion = (Accion) obj;
+        } catch (IllegalArgumentException | SecurityException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
             System.err.println(e);
         }
         return accion;

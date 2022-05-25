@@ -13,6 +13,9 @@ import com.agura.parserpuml.modelo.Modelo;
  */
 public class AbrirCarpetaAccion extends Accion {
 
+    public AbrirCarpetaAccion() {
+    }
+
     @Override
     public void ejecutar(Modelo modelo, Object[]... paths) {
         modelo.notifyObservers("abrirDialogoSeleccionarCarpeta");

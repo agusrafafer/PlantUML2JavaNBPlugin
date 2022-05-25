@@ -6,13 +6,15 @@
 package com.agura.parserpuml.accion;
 
 import com.agura.parserpuml.modelo.Modelo;
-import java.util.List;
 
 /**
  *
  * @author agustin
  */
 public class QuitarPathAccion extends Accion{
+
+    public QuitarPathAccion() {
+    }
 
     @Override
     public void ejecutar(Modelo modelo, Object[]... paths) {

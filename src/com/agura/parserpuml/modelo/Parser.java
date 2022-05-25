@@ -37,14 +37,19 @@ public class Parser extends Modelo {
         return sb.toString();
     }
 
-    public void parsear(String contArchivo) throws IOException {
+    public void parsear(String contArchivo, String ruta) throws IOException {
         //Verificamos que la cadena comience con @startuml y finalice con @enduml
         if (!contArchivo.startsWith("@startuml") && !contArchivo.endsWith("@enduml")) {
             System.out.println("El archivo puml no parece estar bien formado");
             return;
         }
         parsearElementos(contArchivo);
-        generarArchivos("/home/agustin/Escritorio/pruebapuml");
+        int posUltSep = ruta.lastIndexOf(File.separator);
+        if (posUltSep > -1) {
+            generarArchivos(ruta.substring(0, posUltSep));
+        } else {
+            throw new IOException("Error en el separador de paths del sistema operativo");
+        }
     }
 
     private void generarArchivos(String ruta) throws IOException {

@@ -16,6 +16,9 @@ import java.net.URISyntaxException;
  */
 public class ParserAccion extends Accion {
 
+    public ParserAccion() {
+    }
+
     @Override
     public void ejecutar(Modelo modelo, Object[]... paths) {
         try {
@@ -24,7 +27,7 @@ public class ParserAccion extends Accion {
             for (Object arrayPath : arrayPaths) {
                 String path = (String) arrayPath;
                 String contenido = p.abrirArchivo(path);
-                p.parsear(contenido);
+                p.parsear(contenido, path);
 
             }
             modelo.notifyObservers("imprimeMensaje", "Clases Java generadas con exito", null);
